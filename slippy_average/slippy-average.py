@@ -27,25 +27,23 @@ def slip_average(k, n):
             yield i
 
     def sum(buffer):
-        pass
+        sum = 0
+        for i in range(k):
+            sum += buffer[i]
+        return float(sum / k)
 
-    def calc(k):
-        sum = None
-        i = 0
+    def calc():
+        _sum = None
         buffer = []
         while True:
-            j = yield sum   # j == (next(g), step)
+            j = yield _sum   # j == (next(g), step)
             buffer.append(j[0])
-            if j[1] >= k:
-                sum = 0
-                for i in range(k):
-                    sum += buffer[i]
-                else:
-                    del_el = buffer.pop(0)
-                    sum = float(sum/k)
+            if step >= k:
+                _sum = sum(buffer)
+                del_frst = buffer.pop(0)
 
 
-    c = calc(k)
+    c = calc()
     next(c)
     g = gen()
     step = 1
@@ -54,7 +52,7 @@ def slip_average(k, n):
             _g = next(g)
             token = (_g, step)
             res = c.send(token)
-            if step >= k:
+            if res is not None:
                 print(res)
             step += 1
     except StopIteration:
