@@ -40,7 +40,7 @@ def slip_average(k, n):
             buffer.append(j[0])
             if step >= k:
                 _sum = sum(buffer)
-                del_frst = buffer.pop(0)
+                del buffer[0]
 
 
     c = calc()

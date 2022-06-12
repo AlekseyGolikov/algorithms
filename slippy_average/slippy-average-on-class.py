@@ -26,7 +26,7 @@ class SlippyAverage:
             buffer.append(token[1])
             if token[1] >= token[0]:
                 _sum = float(sum(buffer) / token[0])
-                del_el = buffer.pop(0)
+                del buffer[0]
 
 if __name__ == '__main__':
     k = 4
