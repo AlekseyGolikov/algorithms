@@ -149,6 +149,7 @@ class Graph:
         return dist
 
 if __name__ == '__main__':
+    # формирование узлов
     a = Node('A')
     b = Node('B')
     c = Node('C')
@@ -156,8 +157,10 @@ if __name__ == '__main__':
     e = Node('E')
     f = Node('F')
 
+    # формирование нулевой матрицы смежности
     w_graph = Graph.create_from_nodes([a, b, c, d, e, f])
 
+    # добавление связей в нулевую матрицу смежности
     w_graph.connect(a, b, 5)
     w_graph.connect(a, c, 10)
     w_graph.connect(a, e, 2)
@@ -167,4 +170,5 @@ if __name__ == '__main__':
     w_graph.connect(c, f, 10)
     w_graph.connect(d, e, 3)
 
+    # вывод кратчайшего расстояния от узла A до всех остальных узлов
     print([(weight, [n.data for n in node]) for (weight, node) in w_graph.dijkstra(a)])
