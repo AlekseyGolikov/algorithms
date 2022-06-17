@@ -22,3 +22,4 @@
 > Структура данных связанные списки
 > linked-list1.py - Пример однонаправленной очереди (однонаправленного связанного списка)
 > linked-list2.py - Пример двунаправленной очереди (двунаправленного связанного списка)
+> Источник: https://pythonist.ru/svyaznyj-spisok-na-python-chto-eto-takoe-i-kak-ego-realizovat/
