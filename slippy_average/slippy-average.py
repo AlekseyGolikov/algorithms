@@ -58,4 +58,5 @@ def slip_average(k, n):
     except StopIteration:
         print("Работа окончена!")
 
-slip_average(4, 7)
+if __name__ == '__main__':
+    slip_average(4, 7)
